@@ -185,6 +185,36 @@ export default async function Home({
                                                 </button>
                                             </form>
 
+                                            <form
+                                                action="/api/flavors/duplicate"
+                                                method="POST"
+                                                className="space-y-2 rounded-lg border border-dashed border-gray-300 p-3 dark:border-gray-700"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="flavorId"
+                                                    value={flavor.id}
+                                                />
+
+                                                <label className="text-xs font-medium text-gray-600 dark:text-gray-300">
+                                                    Duplicate with new name
+                                                </label>
+
+                                                <input
+                                                    name="newDescription"
+                                                    defaultValue={`${flavor.description || "Untitled flavor"} Copy`}
+                                                    required
+                                                    className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm dark:border-gray-700 dark:bg-gray-900"
+                                                />
+
+                                                <button
+                                                    type="submit"
+                                                    className="rounded-lg border border-gray-300 px-3 py-1 text-xs font-medium hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+                                                >
+                                                    Duplicate Flavor
+                                                </button>
+                                            </form>
+
                                             <form action="/api/flavors/delete" method="POST">
                                                 <input
                                                     type="hidden"
